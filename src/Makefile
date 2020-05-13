@@ -1,7 +1,7 @@
 SCAMLC=scamlc
 
 .PHONY:default
-default: entry.tz
+default: ovm.tz
 
 clean:
 	rm -f *.cm* *.tz
@@ -23,7 +23,7 @@ MLS= \
 	deposit.ml \
 	finalize_checkpoint.ml \
 	tez_utils.ml \
-	entry.ml
+	ovm.ml
 
-entry.tz: $(MLS)
+ovm.tz: $(MLS)
 	$(SCAMLC) $(MLS)
