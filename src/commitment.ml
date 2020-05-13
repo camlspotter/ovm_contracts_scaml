@@ -1,13 +1,18 @@
+open SCaml
+open Ovm_storage_types
+open Ovm_global_types
+open Ovm_event_types
+
 type submit_params = {
   block_number: nat;
   root: bytes;
 }
 
-let submit_action (submit_params: submit_params)(s: ovm_storage) : context =
+let submit_action (submit_params: submit_params) (s: ovm_storage) : context =
 
-  let commitment_storage: commitment_storage = s.commitment_storage in
-  let l2_block_number: nat = submit_params.block_number in
-  let root: bytes = submit_params.root in
+  let commitment_storage = s.commitment_storage in
+  let l2_block_number = submit_params.block_number in
+  let root = submit_params.root in
 
   (* // Validation *)
   if Global.get_source () <> commitment_storage.operator_address then
@@ -17,7 +22,7 @@ let submit_action (submit_params: submit_params)(s: ovm_storage) : context =
 
   (* // State Update *)
   let commitment_storage =
-    {commitment_storage with
+    { commitment_storage with
       commitments =
         Map.update l2_block_number (Some root) commitment_storage.commitments;
       current_block = l2_block_number;
@@ -35,7 +40,7 @@ let submit_action (submit_params: submit_params)(s: ovm_storage) : context =
 
   let s = {s with
             events_storage =
-              emit_event s.events_storage "BlockSubmitted" submitted_event;
+              Emit_event.emit_event s.events_storage "BlockSubmitted" submitted_event;
             commitment_storage = commitment_storage
           }
   in

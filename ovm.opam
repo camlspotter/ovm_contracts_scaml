@@ -1,0 +1,16 @@
+opam-version: "2.0"
+name: "ovm"
+version: "0.0.0"
+authors: "Jun Furuse"
+maintainer: "jun.furuse@dailambda.jp"
+synopsis: "OVM"
+homepage: "https://gitlab.com/dailambda/scaml/"
+bug-reports: "https://gitlab.com/dailambda/scaml/"
+dev-repo: "git://https://gitlab.com/dailambda/scaml/"
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+]
+depends: [
+  "dune" { build & >= "2.5" }
+  "scaml"
+]

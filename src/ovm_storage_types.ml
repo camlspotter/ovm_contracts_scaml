@@ -1,7 +1,12 @@
+open SCaml
+open Ovm_primitive_types
+open Ovm_iterable_types
+open Ovm_event_types
+
 type deposit_storage = {
-    total_deposited : nat;
-    deposited_ranges: (nat, range) map;
-    checkpoints: checkpoints;
+  total_deposited : nat;
+  deposited_ranges: (nat, range) map;
+  checkpoints: checkpoints;
 }
 
 type events_storage = {

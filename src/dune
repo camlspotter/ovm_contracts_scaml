@@ -1,0 +1,5 @@
+(library
+  (name ovm)
+  (public_name ovm)
+  (flags -w A-44 -warn-error A-44)
+  (libraries scaml.scamlib))

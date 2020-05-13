@@ -1,7 +1,9 @@
+open SCaml
+
 type event_params = bytes list
 type event = {
-    block_height : nat;
-    data : event_params;
+  block_height : nat;
+  data : event_params;
 }
 
 type topic = string
