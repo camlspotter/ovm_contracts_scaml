@@ -1,3 +1,4 @@
+[@@@SCaml]
 open SCaml
 
 type token_type = address

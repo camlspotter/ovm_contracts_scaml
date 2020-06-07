@@ -1,3 +1,4 @@
+[@@@SCaml]
 open SCaml
 open Ovm_storage_types
 open Ovm_event_types

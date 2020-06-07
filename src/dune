@@ -1,5 +1,10 @@
-(library
-  (name ovm)
-  (public_name ovm)
+(executables
+  (names ovm)
   (flags -w A-44 -warn-error A-44)
-  (libraries scaml.scamlib))
+  (libraries typerep scaml.scamlib scaml.compiler)
+  (preprocess (staged_pps ppx_typerep_conv scaml.ppx)))
+
+(rule
+ (target ovm.tz)
+ (deps ./ovm.exe)
+ (action (run ./ovm.exe)))

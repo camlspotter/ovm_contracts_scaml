@@ -1,0 +1,3 @@
+(lang dune 2.5)
+(wrapped_executables false)
+(name ovm)

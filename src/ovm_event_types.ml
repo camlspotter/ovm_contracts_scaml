@@ -1,4 +1,7 @@
+[@@@SCaml]
 open SCaml
+
+(* XXX Events should be implemented using variants *)
 
 type event_params = bytes list
 type event = {

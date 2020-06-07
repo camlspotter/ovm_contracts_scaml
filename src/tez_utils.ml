@@ -1,3 +1,4 @@
+[@@@SCaml]
 open SCaml
 
 (* XXX confusing names; they handle mutez, not tez *)
